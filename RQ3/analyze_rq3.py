@@ -4,13 +4,14 @@ import matplotlib.pyplot as plt
 import os
 
 # Configuration
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 FILES = [
-    "/Users/vikhas/Desktop/pr_churn_analysis/pr_level_metrics.csv",
-    "/Users/vikhas/Desktop/pr_churn_analysis/pr_level_metrics_250st.csv",
-    "/Users/vikhas/Desktop/pr_churn_analysis/pr_level_metrics_500st.csv"
+    os.path.join(SCRIPT_DIR, "plotting_csv", "pr_level_metrics.csv"),
+    os.path.join(SCRIPT_DIR, "plotting_csv", "pr_level_metrics_250st.csv"),
+    os.path.join(SCRIPT_DIR, "plotting_csv", "pr_level_metrics_500st.csv"),
 ]
-OUTPUT_REPORT = "/Users/vikhas/.gemini/antigravity/brain/7cc55c90-5e75-48a8-bc12-0ce44961f11c/rq3_churn_intensity_report.md"
-PLOT_DIR = "/Users/vikhas/.gemini/antigravity/brain/7cc55c90-5e75-48a8-bc12-0ce44961f11c"
+OUTPUT_REPORT = os.path.join(SCRIPT_DIR, "rq3_churn_intensity_report.md")
+PLOT_DIR = os.path.join(SCRIPT_DIR, "plots")
 
 def analyze_rq3():
     dfs = []

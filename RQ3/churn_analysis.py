@@ -6,9 +6,11 @@ from collections import Counter
 from datetime import datetime, timedelta
 
 # Configuration
-INPUT_FILE = "/Users/vikhas/Downloads/matched_pr_pairs.json"
-OUTPUT_REPORT = "/Users/vikhas/.gemini/antigravity/brain/33304aa7-551d-49f3-a20e-24b9c3af7c20/churn_report.md"
-REPO_DIR = "/Users/vikhas/.gemini/antigravity/scratch/repos"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+INPUT_FILE = os.path.join(SCRIPT_DIR, "..", "datasets",
+                          "matched_pr_pairs_in_30_days_500st.json")
+OUTPUT_REPORT = os.path.join(SCRIPT_DIR, "churn_report.md")
+REPO_DIR = os.path.join(SCRIPT_DIR, "repos")
 TOP_N_REPOS = 20
 CHURN_WINDOW_DAYS = 90
 

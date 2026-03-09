@@ -1,15 +1,14 @@
 """
 RQ1: AI vs Human Code Complexity Analysis (Pre/Post Delta)
 
-Strategy:
-1. Iterate through matched PR pairs.
-2. Clone repository (and delete immediately after analysis to save space).
-3. For each PR (AI and Human):
-   a. Identify changed files.
-   b. Measure complexity at HEAD (After).
-   c. Measure complexity at HEAD^ (Before).
-   d. Delta = After - Before.
-4. Save results incrementally to CSV.
+This script iterates through matched AI/Human PR pairs, clones each repository
+on demand, and performs a before-vs-after complexity delta analysis. For each PR
+it identifies the changed files via git diff, measures their complexity at HEAD
+(after the PR) and at HEAD^ (before the PR) using Lizard (all languages) and
+Radon (Python), then computes Delta = After - Before. After analysis the
+repository is immediately deleted to conserve disk space. Once all pairs are
+processed, the script runs Mann-Whitney U and Cliff's Delta statistical tests
+and generates comparison graphs (box-plots, bar charts, violin plots).
 """
 
 import json
