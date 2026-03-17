@@ -29,18 +29,26 @@ This directory contains scripts and analysis tools to compare the **stability an
 
 ## Key Findings (Full Dataset — 585 PRs, 126 Repos)
 
-### Descriptive Statistics
+### Aggregate Statistics (Line-Level True Churn)
 
-| Metric | AI (Total | Mean / Median) | Human (Total | Mean / Median) |
+| Metric | AI Code | Human Code |
 |:---|:---|:---|
 | **Pairs Analyzed** | 294 | 291 |
-| **Lines Contributed (Added)** | 249,677 \| 849.2 / 58.0 | 212,469 \| 730.1 / 57.0 |
-| **Specific Lines Rewritten (Churned)** | 160,464 \| 545.8 / 3.0 | 110,862 \| 381.0 / 8.0 |
-| **Total Change Events** | 6,530 \| 22.2 / 2.0 | 16,236 \| 55.8 / 3.0 |
+| **Lines Contributed** | 249,677 | 212,469 |
+| **Specific Lines Rewritten** | 160,464 | 110,862 |
 | **Avg Churn Ratio** | 29.93% | 38.32% |
-| **Median Churn Ratio** | 7.56% | 18.55% |
+| **Total Change Events** | 6,530 | 16,236 |
 | **Events Per Line** | 0.0262 | 0.0764 |
-| **Zero-Churn PRs** | 33.3% | 26.5% |
+
+### Per-PR Descriptive Statistics
+
+| Metric | AI (Mean) | AI (Median) | Human (Mean) | Human (Median) |
+|:---|:---|:---|:---|:---|
+| **Churn Ratio** | 0.2993 | 0.0756 | 0.3832 | 0.1855 |
+| **Lines Added** | 849.2 | 58.0 | 730.1 | 57.0 |
+| **Lines Churned** | 545.8 | 3.0 | 381.0 | 8.0 |
+| **Change Events** | 22.2 | 2.0 | 55.8 | 3.0 |
+| **Zero-Churn PRs** | 33.3% | — | 26.5% | — |
 
 ### Statistical Tests
 
