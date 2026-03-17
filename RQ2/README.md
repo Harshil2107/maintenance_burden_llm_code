@@ -1,15 +1,15 @@
-# RQ3: Code Churn & Stability Analysis
+# RQ2: Code Churn & Stability Analysis
 
 ## Research Questions
 
-- **RQ3 (Base):** Does AI-generated code churn more or less than human code after merging?
-- **RQ3a:** Do AI agents work on colder (less active) files, which could explain lower churn?
-- **RQ3b:** After controlling for file heat, PR size, language, and task type, does author type still predict churn?
+- **RQ2 (Base):** Does AI-generated code churn more or less than human code after merging?
+- **RQ2a:** Do AI agents work on colder (less active) files, which could explain lower churn?
+- **RQ2b:** After controlling for file heat, PR size, language, and task type, does author type still predict churn?
 
 ## Prerequisites
 
 ```bash
-cd RQ3
+cd RQ2
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -40,7 +40,7 @@ python extract_covariates.py
 **Runtime:** ~2-3 hours (clones repos with `--depth 1`)
 **Output:** `covariates.csv` (640 rows — language, task type, repo ID per PR)
 
-### Step 3: File Heat Analysis (RQ3a)
+### Step 3: File Heat Analysis (RQ2a)
 
 Computes a "file heat score" per PR — the average number of commits touching the changed files in the 90 days before the PR was merged. Generates comparison plots.
 
@@ -54,7 +54,7 @@ python file_heat_analysis.py
 - `plots_heat/file_heat_boxplot.png`
 - `plots_heat/file_heat_density.png`
 
-### Step 4: Regression Analysis (RQ3b)
+### Step 4: Regression Analysis (RQ2b)
 
 Merges churn data + covariates + file heat scores, then fits 3 OLS regression models with clustered standard errors to test whether author type predicts churn.
 
@@ -71,10 +71,10 @@ python regression_analysis.py
 |--------|---------|
 | `line_churn_analysis.py` | Line-level churn via `git blame --reverse` |
 | `churn_analysis.py` | Basic 90-day post-merge churn ratio (pilot) |
-| `analyze_rq3.py` | Conditional churn intensity analysis + plots |
+| `analyze_rq2.py` | Conditional churn intensity analysis + plots |
 | `extract_covariates.py` | Extract dominant language & task type per PR |
-| `file_heat_analysis.py` | RQ3a — file heat scores (commits in 90d pre-merge) |
-| `regression_analysis.py` | RQ3b — hierarchical OLS regression |
+| `file_heat_analysis.py` | RQ2a — file heat scores (commits in 90d pre-merge) |
+| `regression_analysis.py` | RQ2b — hierarchical OLS regression |
 
 ## Key Findings (N=268)
 

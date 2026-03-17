@@ -10,10 +10,10 @@ FILES = [
     os.path.join(SCRIPT_DIR, "plotting_csv", "pr_level_metrics_250st.csv"),
     os.path.join(SCRIPT_DIR, "plotting_csv", "pr_level_metrics_500st.csv"),
 ]
-OUTPUT_REPORT = os.path.join(SCRIPT_DIR, "rq3_churn_intensity_report.md")
+OUTPUT_REPORT = os.path.join(SCRIPT_DIR, "rq2_churn_intensity_report.md")
 PLOT_DIR = os.path.join(SCRIPT_DIR, "plots")
 
-def analyze_rq3():
+def analyze_rq2():
     dfs = []
     for f in FILES:
         if os.path.exists(f):
@@ -47,7 +47,7 @@ def analyze_rq3():
     
     # Generate Report
     with open(OUTPUT_REPORT, 'w') as f:
-        f.write("# RQ3: Conditional Churn Intensity Analysis\n\n")
+        f.write("# RQ2: Conditional Churn Intensity Analysis\n\n")
         f.write("## Hypothesis\n")
         f.write("Since AI code might be 'perfect or broken', we test if AI code that *does* break requires more extensive rewriting than human code.\n\n")
         
@@ -83,15 +83,15 @@ def analyze_rq3():
     sns.violinplot(data=conditional_df, x='type', y='ratio', palette='muted', inner='quartile')
     plt.title('Distribution of Churn Ratio (Only for Churned PRs)')
     plt.ylabel('Churn Ratio (Lines Modified / Lines Added)')
-    plt.savefig(f"{PLOT_DIR}/rq3_conditional_churn_violin.png")
+    plt.savefig(f"{PLOT_DIR}/rq2_conditional_churn_violin.png")
     
     plt.figure(figsize=(10, 6))
     sns.boxplot(data=conditional_df, x='type', y='event_intensity', palette='pastel')
     plt.title('Event Intensity (Updates per Line) for Churned PRs')
     plt.ylim(0, 0.5) # Limit outliers for visibility
-    plt.savefig(f"{PLOT_DIR}/rq3_event_intensity_boxplot.png")
+    plt.savefig(f"{PLOT_DIR}/rq2_event_intensity_boxplot.png")
 
     print(f"Report saved to {OUTPUT_REPORT}")
 
 if __name__ == "__main__":
-    analyze_rq3()
+    analyze_rq2()
