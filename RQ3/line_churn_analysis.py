@@ -8,12 +8,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import shutil
 
 # Configuration
-INPUT_FILE = "/Users/vikhas/Desktop/pr_churn_analysis/datasets/matched_pr_pairs_in_30_days_500st.json"
-OUTPUT_REPORT = "/Users/vikhas/Desktop/pr_churn_analysis/line_churn_report_500st.md"
+INPUT_FILE = "/Users/vikhas/Documents/projects/winter/SE/maintainance_burden_llm_code/datasets/matched_pr_pairs_in_30_days_500st.json"
+OUTPUT_REPORT = "/Users/vikhas/Documents/projects/winter/SE/maintainance_burden_llm_code/RQ3/line_churn_report_500st_full.md"
 REPO_DIR = "/Users/vikhas/.gemini/antigravity/scratch/repos"
-TOP_N_REPOS = 20
+TOP_N_REPOS = 1000000  # Complete dataset
 CHURN_WINDOW_DAYS = 90
-CSV_EXPORT = "/Users/vikhas/Desktop/pr_churn_analysis/pr_level_metrics_500st.csv"
+CSV_EXPORT = "/Users/vikhas/Documents/projects/winter/SE/maintainance_burden_llm_code/RQ3/pr_level_metrics_500st_full.csv"
 
 def run_cmd(cmd, cwd=None):
     try:
