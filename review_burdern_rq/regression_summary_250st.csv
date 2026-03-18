@@ -1,0 +1,6 @@
+Model,author_type coef (Human vs AI baseline),p-value,Sig.,N,Odds Ratio (Human vs AI),R²
+M1 — Logit (human discussion),-0.2472,0.1983,,944,0.781,
+"M2 — OLS log(human disc. count, non-zero)",-0.1247,0.0933,.,292,,0.1194
+M3 — OLS log(human comment words),-0.235,0.0975,.,944,,0.1087
+"M4 — Logit (total discussion, incl. bots)",-0.8013,0.0,***,944,0.4487,
+"M5 — OLS log(total disc. count, incl. bots)",-0.202,0.0013,**,655,,0.144
